@@ -79,6 +79,12 @@ summary(compositeFit)
 standardizedSolution(compositeFit)
 
 #Multiple group SEM
+# Data from The classic Holzinger and Swineford (1939) dataset consists of mental ability test scores 
+#of seventh- and eighth-grade children from two different schools (Pasteur and Grant-White). In the 
+#original dataset (available in the MBESS package), there are scores for 26 tests. However, a smaller 
+#subset with 9 variables is more widely used in the literature (for example in Joreskog's 1969 paper, 
+#which also uses the 145 subjects from the Grant-White school only).
+#?HolzingerSwineford1939
 
 HS.model <- ' visual  =~ x1 + x2 + x3
               textual =~ x4 + x5 + x6
@@ -108,7 +114,9 @@ semPaths(fit, what = "eq",
          sizeMan2 = 5)
 
 
-summary(fit)
-parameterEstimates(fit)
-
+summary(cardFit) #gives a nice overview of a fitted model
+standardizedSolution(cardFit) #returns a data.frame containing all the model parameters in the rows
+parameterEstimates(fit) # similar to standardizedSolution() only shows the standardized parameter estimates and corresponding standard errors, z-values, p-values and confidence intervals.
+lavResiduals(fit) #gives more extensive information about the residuals
+AIC(fit) #Akaike information criterion, estimates the quality of each model, relative to each of the other models
 
