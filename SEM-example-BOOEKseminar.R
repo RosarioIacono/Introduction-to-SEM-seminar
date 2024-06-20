@@ -7,6 +7,7 @@ library(lavaan)
 library(lavaanPlot)
 
 library(tidyverse)
+library(semPlot)
 
 cards<-read.table("./data/cardinale_et_al_2008_data.txt", sep="\t", header=T)
 cards<-na.omit(cards)
@@ -15,8 +16,7 @@ cardModel<-'
   SA ~ logN + logNcen2 + SR
   logChl ~ SA + logN
   GPP ~ logN + logChl
- SR ~~ 0*logN + 0*logNcen2 #from path model - otherwise these are estimated
-  
+  SR ~~ 0*logN + 0*logNcen2 #from path model - otherwise these are estimated
   '
 
 #fixed.x=F in order to allow the dropping of paths between
@@ -71,10 +71,6 @@ lavaanPlot(model = compositeFit,
            edge_options = list(color = "grey"), 
            coefs = FALSE, 
            stand = TRUE)
-
-semPaths(compositeFit, what = "eq", whatLabels = "std", style = "mx",  
-         color = colorlist, rotation =1 , layout = "tree",  nCharNodes = 7, 
-         shapeMan = "rectangle", sizeMan = 8, sizeMan2 = 5)
 
 summary(compositeFit)
 standardizedSolution(compositeFit)
