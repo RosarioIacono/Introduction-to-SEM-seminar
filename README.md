@@ -9,8 +9,6 @@ This repository contains materials for the seminar on Structural Equation Modeli
 - [Usage](#usage)
 - [Data](#data)
 - [Scripts](#scripts)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
