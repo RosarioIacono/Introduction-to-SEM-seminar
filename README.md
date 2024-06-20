@@ -1,7 +1,3 @@
-Here is a draft README for your GitHub repository:
-
----
-
 # Introduction to SEM Seminar
 
 This repository contains materials for the seminar on Structural Equation Modeling (SEM) held as part of the weekly seminar series at the Soil Ecology Department at the Helmholtz Centre for Environmental Research (UFZ).
