@@ -34,10 +34,13 @@ semPaths(cardFit, what = "eq", whatLabels = "std", style = "mx",
          color = colorlist, rotation =1 , layout = "tree",  nCharNodes = 7, 
          shapeMan = "rectangle", sizeMan = 8, sizeMan2 = 5)
 
-summary(cardFit)
 
-standardizedSolution(cardFit)
-
+#extracting information from the model
+summary(cardFit) #gives a nice overview of a fitted model
+standardizedSolution(cardFit) #returns a data.frame containing all the model parameters in the rows
+parameterEstimates(fit) # similar to standardizedSolution() only shows the standardized parameter estimates and corresponding standard errors, z-values, p-values and confidence intervals.
+lavResiduals(fit) #gives more extensive information about the residuals
+AIC(fit) #Akaike information criterion, estimates the quality of each model, relative to each of the other models
 
 
 compositeModel<-'
@@ -106,4 +109,6 @@ semPaths(fit, what = "eq",
 
 
 summary(fit)
+parameterEstimates(fit)
+
 
